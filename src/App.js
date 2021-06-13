@@ -23,7 +23,7 @@ function App() {
     for(let i = 0; i < todo.length; i++) //better way?
       if(name === todo[i].name)
         return
-    //rest perameter for array making
+    //rest perameter for  sd array making
     setTodo(todos => {
       return [...todos ,{
         name: name,
