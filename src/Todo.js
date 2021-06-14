@@ -32,6 +32,7 @@ export default function Todo({todo}) {
                     <Button variant="contained" onClick={editTodo} disabled={editing}>Edit</Button> 
                     <Checkbox onChange={checkBoxFunction}></Checkbox>
                     <h3>{todo.name}</h3> 
+                    <h5>{todo.date.toLocaleDateString() + ' - ' + todo.date.toLocaleTimeString()}</h5> 
                 </CardActions>
                 {/**Using conditional render**/}
                 {editing && <Editing todo={todo} setEditingState={setEditing} />}
