@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, Checkbox } from '@material-ui/core'
+import { Button, Card, CardActions, Checkbox, Typography } from '@material-ui/core'
 import {React, useState} from 'react'
 import Editing from './Editing'
 
@@ -31,9 +31,11 @@ export default function Todo({todo}) {
                 <CardActions>
                     <Button variant="contained" onClick={editTodo} disabled={editing}>Edit</Button> 
                     <Checkbox onChange={checkBoxFunction}></Checkbox>
-                    <h3>{todo.name}</h3> 
-                    <h5>{todo.date.toLocaleDateString() + ' - ' + todo.date.toLocaleTimeString()}</h5> 
+                    <h3>{todo.name}</h3>  
                 </CardActions>
+                <Typography variant="subtitle2" style={{marginLeft: '675px', marginBottom: '15px', color: '#595959'}}>
+                    {todo.date.toLocaleDateString() + ' - ' + todo.date.toLocaleTimeString()}
+                </Typography>
                 {/**Using conditional render**/}
                 {editing && <Editing todo={todo} setEditingState={setEditing} />}
             </Card>
