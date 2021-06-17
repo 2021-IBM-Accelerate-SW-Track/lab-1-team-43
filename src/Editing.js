@@ -17,6 +17,8 @@ export default function Editing({todo, setEditingState}) {
         const newDate = new Date();
         todo.date = newDate;
         setEditingState(false)
+        if(!todo.edited)
+            todo.edited = true;
     }
 
     return (

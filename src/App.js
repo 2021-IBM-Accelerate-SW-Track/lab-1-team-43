@@ -32,6 +32,7 @@ function App() {
         specificKey: name,  //needed for mapping, can also use some sort of algorithm for specific id
         completed: false,    //Checkbox definition
         date: addDate, //Date for display
+        edited: false //Indicates a list has been edited
       }]
     })
     console.log(name);

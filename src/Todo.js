@@ -33,8 +33,8 @@ export default function Todo({todo}) {
                     <Checkbox onChange={checkBoxFunction}></Checkbox>
                     <h3>{todo.name}</h3>  
                 </CardActions>
-                <Typography variant="subtitle2" style={{marginLeft: '675px', marginBottom: '15px', color: '#595959'}}>
-                    {todo.date.toLocaleDateString() + ' - ' + todo.date.toLocaleTimeString()}
+                <Typography variant="subtitle2" style={{marginRight: '8px', marginBottom: '15px', color: '#595959', textAlign: 'right'}}>
+                    {todo.edited ? 'Edited: ' + todo.date.toLocaleDateString() + ' - ' + todo.date.toLocaleTimeString() : 'Created: ' + todo.date.toLocaleDateString() + ' - ' + todo.date.toLocaleTimeString()}
                 </Typography>
                 {/**Using conditional render**/}
                 {editing && <Editing todo={todo} setEditingState={setEditing} />}
