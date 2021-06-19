@@ -14,7 +14,11 @@ export default function Editing({todo, setEditingState}) {
                 return
         console.log('Changed to - ' + name);
         todo.name = name
+        const newDate = new Date();
+        todo.date = newDate;
         setEditingState(false)
+        if(!todo.edited)
+            todo.edited = true;
     }
 
     return (

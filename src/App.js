@@ -23,12 +23,16 @@ function App() {
     for(let i = 0; i < todo.length; i++) //better way?
       if(name === todo[i].name)
         return
-    //rest perameter for  sd array making
+
+    const addDate = new Date();    
+    //rest perameter for array making
     setTodo(todos => {
       return [...todos ,{
         name: name,
         specificKey: name,  //needed for mapping, can also use some sort of algorithm for specific id
-        completed: false    //Checkbox definition
+        completed: false,    //Checkbox definition
+        date: addDate, //Date for display
+        edited: false //Indicates a list has been edited
       }]
     })
     console.log(name);
