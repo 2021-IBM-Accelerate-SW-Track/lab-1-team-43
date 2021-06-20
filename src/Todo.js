@@ -39,6 +39,7 @@ export default function Todo({todo}) {
                 {/**Using conditional render**/}
                 {editing && <Editing todo={todo} setEditingState={setEditing} />}
             </Card>
+            
         </div>
     )
 }
