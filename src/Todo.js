@@ -1,10 +1,22 @@
-import { Button, Card, CardActions, Checkbox, Typography } from '@material-ui/core'
+import { Button, Card, CardActions, Checkbox, Typography, FormControlLabel } from '@material-ui/core'
 import {React, useState} from 'react'
+import { withStyles } from '@material-ui/core/styles';
 import Editing from './Editing'
+
+const GreenCheckbox = withStyles({
+    root: {
+        color: '#03AC13',
+        '&$checked':{
+            color: '#03C04A',
+        },
+    },
+    checked: {},
+})((props) => <Checkbox color='default' {...props}/>);
 
 export default function Todo({todo}) {
 
     const [editing, setEditing] = useState(false)
+    const [checked, setChecked] = useState(false)
 
     const cardWidth = 850 //for centering the cards aka todos
 
@@ -20,6 +32,10 @@ export default function Todo({todo}) {
         setEditing(true) // disables the button
     }
 
+    const doneCheckBoxFunction = (event) => {
+        setChecked(event.target.checked);
+    }
+
     return (
         <div style={{padding: '10px 0', position: 'relative', left: cardWidth/2}}>
             <Card style={{
@@ -32,6 +48,11 @@ export default function Todo({todo}) {
                     <Button variant="contained" onClick={editTodo} disabled={editing}>Edit</Button> 
                     <Checkbox onChange={checkBoxFunction}></Checkbox>
                     <h3>{todo.name}</h3>  
+                    <FormControlLabel
+                        style={{position: 'absolute', right: '0px'}}
+                        control={<GreenCheckbox checked={checked} onChange={doneCheckBoxFunction}/>}
+                        label="Done"
+                    />
                 </CardActions>
                 <Typography variant="subtitle2" style={{marginRight: '8px', marginBottom: '15px', color: '#595959', textAlign: 'right'}}>
                     {todo.edited ? 'Edited: ' + todo.date.toLocaleDateString() + ' - ' + todo.date.toLocaleTimeString() : 'Created: ' + todo.date.toLocaleDateString() + ' - ' + todo.date.toLocaleTimeString()}
