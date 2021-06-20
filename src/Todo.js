@@ -46,8 +46,13 @@ export default function Todo({todo}) {
             }}>
                 <CardActions>
                     <Button variant="contained" onClick={editTodo} disabled={editing}>Edit</Button> 
-                    <Checkbox onChange={checkBoxFunction}></Checkbox>
-                    <h3>{todo.name}</h3>  
+                    
+                    <h3 style={{marginLeft: '16px'}}>{todo.name}</h3>  
+                    <FormControlLabel 
+                        style={{position: 'absolute', right: '85px'}}
+                        control={<Checkbox onChange={checkBoxFunction}/>}
+                        label="Select for Removal" 
+                    />
                     <FormControlLabel
                         style={{position: 'absolute', right: '0px'}}
                         control={<GreenCheckbox checked={checked} onChange={doneCheckBoxFunction}/>}
