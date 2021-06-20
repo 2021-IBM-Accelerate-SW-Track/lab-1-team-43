@@ -55,8 +55,10 @@ function App() {
       <TodoList todos={todo}/>
       {/**TextField would probably be better**/}
       <Input inputRef={todoNameRef} type="text" placeholder='Add Todo!'></Input>
-      <Button variant="contained" onClick={handleAddTodo}>Add Item</Button>
-      <Button variant="contained" onClick={removeTodos}>Remove Items</Button>
+      <Button style= {{marginLeft: '30px'}} variant="contained" onClick={handleAddTodo}>Add Item</Button>
+      <Button style= {{marginLeft: '30px'}} variant="contained" onClick={removeTodos}>Remove Items</Button>
+      
+      
 
       <h1>Todos: {todo.length}</h1>
       {/**<h1>Completed: {todo.filter(complete => complete.completed).length}</h1>**/}
