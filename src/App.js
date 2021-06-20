@@ -36,6 +36,8 @@ function App() {
       }]
     })
     console.log(name);
+
+    todoNameRef.current.value = '';
   }
 
   //Removes checked todos when the button is clicked
