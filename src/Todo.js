@@ -6,7 +6,7 @@ export default function Todo({todo}) {
 
     const [editing, setEditing] = useState(false)
 
-    const cardWidth = 850 //for centering the cards aka todos
+    const cardWidth = 850 //for centering the cards aka todos, needs to be adjusted to proper screen size not static
 
     //When checkbox is clicked, it sets the todo to completed
     const checkBoxFunction = (event) => {

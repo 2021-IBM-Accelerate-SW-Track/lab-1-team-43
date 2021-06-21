@@ -8,23 +8,35 @@ function App() {
 
   //using Reacts state because we are going to be modifying the todos
   const [todo, setTodo] = useState([])
+  const [inputError, setInputError] = useState(false)
 
   //react comes with use reference for specific reference, in this case its the <input/>
   const todoNameRef = useRef()
 
+  //Function that clears any value from any referance using the useRef()
+  const clearReferanceValue = (ref) => ref.current.value = "";
 
   //Handles add todos when the button is pressed
   const handleAddTodo = () => {
     //the current user input text
     const name = todoNameRef.current.value
     //checks if user inputs nothing and if they entered the same value
-    if(name === '') 
+    if(name === ''){
+      clearReferanceValue(todoNameRef);
+      setInputError(true);
       return
-    for(let i = 0; i < todo.length; i++) //better way?
-      if(name === todo[i].name)
+    }
+
+    for(let i = 0; i < todo.length; i++){ //better way?
+      if(name === todo[i].name){
+        clearReferanceValue(todoNameRef);
+        setInputError(true);
         return
+      }
+    }
 
     const addDate = new Date();    
+
     //rest perameter for array making
     setTodo(todos => {
       return [...todos ,{
@@ -35,7 +47,10 @@ function App() {
         edited: false //Indicates a list has been edited
       }]
     })
+
     console.log(name);
+    clearReferanceValue(todoNameRef);
+    setInputError(false);
   }
 
   //Removes checked todos when the button is clicked
@@ -49,9 +64,9 @@ function App() {
     <div className="App">
       <TodoList todos={todo}/>
       {/**TextField would probably be better**/}
-      <Input inputRef={todoNameRef} type="text" placeholder='Add Todo!'></Input>
+      <Input inputRef={todoNameRef} type="text" placeholder='Add Todo!' error={inputError}></Input>
       <Button variant="contained" onClick={handleAddTodo}>Add Item</Button>
-      <Button variant="contained" onClick={removeTodos}>Remove Items</Button>
+      <Button variant="contained" onClick={removeTodos} disabled={todo.filter(complete => complete.completed).length <= 0}>Remove Items</Button>
       <h1>Todos: {todo.length}</h1>
       {/**<h1>Completed: {todo.filter(complete => complete.completed).length}</h1>**/}
     <Header/>
