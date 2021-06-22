@@ -37,7 +37,7 @@ export default function Todo({todo}) {
     }
 
     return (
-        <div style={{padding: '10px 0', position: 'relative', left: cardWidth/2}}>
+        <div style={{padding: '10px', position: 'relative', margin: 'auto', width: '50%'}}>
             <Card style={{
                 maxWidth: cardWidth,
                 position: 'relative',
