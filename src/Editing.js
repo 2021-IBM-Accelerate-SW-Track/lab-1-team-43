@@ -34,10 +34,15 @@ export default function Editing({todo, setEditingState}) {
             todo.edited = true;
     }
 
+    const cancel = () => {
+        setEditingState(false);
+    }
+
     return (
         <div>
             <Button variant="contained" onClick={saved}>Save</Button>
             <Input type="text" inputRef={editTextBox} placeholder="Edit" error={InputError}></Input>
+            <Button variant="contained" onClick={cancel}>Cancel</Button>
         </div>
     )
 }
