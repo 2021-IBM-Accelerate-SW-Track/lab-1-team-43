@@ -64,8 +64,8 @@ function App() {
     <div className="App">
       <TodoList todos={todo}/>
       {/**TextField would probably be better**/}
-      <Input inputRef={todoNameRef} type="text" placeholder='Add Todo!' error={inputError}></Input>
-      <Button style= {{marginLeft: '30px'}} variant="contained" onClick={handleAddTodo}>Add Item</Button>
+      <Input inputRef={todoNameRef} type="text" placeholder='Add Todo!' error={inputError} data-testid="new-item-input"></Input>
+      <Button style= {{marginLeft: '30px'}} variant="contained" onClick={handleAddTodo} data-testid="new-item-button">Add Item</Button>
       {/**When there is no elements checked disable the remove items **/}
       <Button style= {{marginLeft: '50px'}} variant="contained" onClick={removeTodos}>Remove Items</Button>
       <h1>Todos: {todo.length}</h1>
