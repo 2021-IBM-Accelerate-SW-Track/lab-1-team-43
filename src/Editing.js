@@ -39,10 +39,10 @@ export default function Editing({todo, setEditingState}) {
     }
 
     return (
-        <div>
-            <Button variant="contained" onClick={saved}>Save</Button>
-            <Input type="text" inputRef={editTextBox} placeholder="Edit" error={InputError}></Input>
-            <Button variant="contained" onClick={cancel}>Cancel</Button>
+        <div style= {{paddingBottom: '30px'}}>
+            <Button style= {{marginLeft: '30px'}} variant="contained" onClick={saved}>Save</Button>
+            <Input style= {{marginLeft: '30px'}} type="text" inputRef={editTextBox} placeholder="Edit" error={InputError}></Input>
+            <Button style= {{marginLeft: '30px'}} variant="contained" onClick={cancel}>Cancel</Button>
         </div>
     )
 }
